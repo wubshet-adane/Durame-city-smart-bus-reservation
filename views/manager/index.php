@@ -116,6 +116,7 @@ $maintenance = $mysqli->query("
                         <th>Name</th>
                         <th>Phone</th>
                         <th>Created</th>
+                        <th>Action</th>
                     </tr>
                     <?php while ($d = $drivers->fetch_assoc()): ?>
                         <tr class="border-b">
@@ -123,6 +124,9 @@ $maintenance = $mysqli->query("
                             <td><?= $d['name'] ?></td>
                             <td><?= $d['phone'] ?></td>
                             <td><?= $d['created_at'] ?></td>
+                            <td>
+                                <a href="action/deleteDriver.php?id=<?= $d['id'] ?>" class="text-bold text-red-400 hover:text-red-900">Delete</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </table>
@@ -138,6 +142,7 @@ $maintenance = $mysqli->query("
                         <th>Model</th>
                         <th>Driver</th>
                         <th>Status</th>
+                        <th>Action</th>
                     </tr>
                     <?php
                     $buses->data_seek(0);
@@ -148,6 +153,9 @@ $maintenance = $mysqli->query("
                             <td><?= $b['name'] ?></td>
                             <td><?= $b['driver_name'] ?? "<span class='text-red-600'>Not Assigned</span>" ?></td>
                             <td><?= $b['status'] ?></td>
+                            <td>
+                                <a href="action/deleteBus.php?id=<?= $b['id'] ?>" class="text-bold text-red-400 hover:text-red-900">Delete</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </table>
@@ -164,6 +172,7 @@ $maintenance = $mysqli->query("
                         <th>Description</th>
                         <th>Status</th>
                         <th>Created</th>
+                        <th>Action</th>
                     </tr>
                     <?php while ($m = $maintenance->fetch_assoc()): ?>
                         <tr class="border-b">
@@ -179,6 +188,9 @@ $maintenance = $mysqli->query("
                                 <?php endif; ?>
                             </td>
                             <td><?= $m['created_at'] ?></td>
+                            <td>
+                                <a href="action/deleteMaintenanceRequest.php?id=<?= $m['id'] ?>" class="text-bold text-red-400 hover:text-red-900">Delete</a>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </table>

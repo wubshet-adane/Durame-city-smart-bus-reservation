@@ -12,7 +12,7 @@ $reservations = $mysqli->query("SELECT r.seat_number, u.name
 if ($reservations->num_rows == 0) {
     echo "<p class='text-gray-600'>No seats reserved yet.</p>";
 } else {
-    echo "<ul class='text-gray-700'>";
+    echo "<ul class='text-gray-100'>";
     while ($r = $reservations->fetch_assoc()) {
         echo "<li>Seat {$r['seat_number']} → {$r['name']}</li>";
     }
